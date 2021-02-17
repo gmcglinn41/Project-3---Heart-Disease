@@ -41,14 +41,14 @@ def run_example():
     res = run_request()
     return res
 
-@app.route('/parameters/<petal_length>&<sepal_length>&<petal_width>&<sepal_width>')
-def get_prediction(petal_length=5, sepal_length=5, petal_width=5, sepal_width=5):
-    url = 'https://jl-uwa-demo.herokuapp.com/predict'
+@app.route('/parameters/<age>&<resting_bp>&<chol>&<max_heart_rate>')
+def get_prediction(age=5, resting_bp=5, chol=5, max_heart_rate=5):
+    url = 'http://127.0.0.1/predict'
     body = {
-        "petal_length": petal_length,
-        "sepal_length": sepal_length,
-        "petal_width": petal_width,
-        "sepal_width": sepal_width
+        "age": age,
+        "resting_bp": resting_bp,
+        "chol": chol,
+        "max_heart_rate": max_heart_rate
     }
     response = requests.post(url, data=body)
     return response.json()

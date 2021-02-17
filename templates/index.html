@@ -1,0 +1,69 @@
+<<html>
+
+    <head>
+        <title>Cryptocurrency Dashboard</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abel">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
+        <link rel="stylesheet" href="/static/style.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.7/d3.min.js"></script>		 
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>		 
+        <script src="https://d3js.org/d3.v5.min.js"></script>		 
+    </head>
+    
+    <body>
+        <table style="height: 100%; width: 100%; border-collapse: collapse;" border="0" cellspacing="0" cellpadding="0">
+            <tbody>
+                <tr>
+                    <td colspan="3" style="background-image: url('../static/images/bgs/40.jpg'); background-repeat: no-repeat;
+        background-size: cover;
+        height: 150px;
+        color: #ffffff;
+        font-weight: bolder;
+        font-family: ABeeZee;
+        letter-spacing: 15px;
+        font-style: italic;
+        text-decoration: overline;
+        text-align: right;
+        font-size: 40px;
+        bottom: 0px;
+        vertical-align: bottom;
+        text-shadow: 5px 3px 12px #000000;">CRYPTOCURRENCY DASHBOARD</td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="height: 30px;
+        padding: 10px;
+        font-family: Abel;
+        font-size: 14px;
+        background-color: #0695d6;
+        color: #ffffff;
+        letter-spacing: 3px;">&nbsp;&nbsp;
+                        <a href="/">DASHBOARD</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                        <a href="/coins">COINS</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                        <a href="/marketcap">MARKET CAPS</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                        <a href="/team">ABOUT US</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 50px;">&nbsp;</td>
+                    <td>
+                        <div id="mainchartdiv"></div>
+                    </td>
+                    <td style="width: 50px;">&nbsp;</td>
+                </tr>
+                <tr>
+                    <td colspan="3" style="height: 30px;
+        font-family: Abel;
+        text-align: right;
+        font-size: 12px;
+        padding: 9px;
+        background-color: #c3c3c3;">© 2020 Some people&nbsp; &nbsp; Privacy &amp; cookies&nbsp; &nbsp; Terms of use&nbsp;
+                        &nbsp; Contact us</td>
+                </tr>
+            </tbody>
+        </table>
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
+        <script src='../static/js/overview.js'></script>
+        link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    </body>!
+    
