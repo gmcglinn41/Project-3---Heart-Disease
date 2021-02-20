@@ -4,7 +4,7 @@ from flask_restful import Api
 from predict import Predict
 import requests
 from example import run_request
-from models import create_classes
+# from models import create_classes
 import os
 from flask import (
     Flask,
@@ -24,9 +24,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///db.sqlite" #os.environ.get('D
 # Remove tracking modifications
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-db = SQLAlchemy(app)
 
-Pet = create_classes(db)
 
 # Add predict to route predict
 API.add_resource(Predict, '/predict')
@@ -99,6 +97,30 @@ def pals():
     }]
 
     return jsonify(pet_data)
+
+# allow both GET and POST requests
+@app.route('/heart-calculator', methods=['GET', 'POST'])
+def form_example():
+    # handle the POST request
+    if request.method == 'POST':
+        age = request.form.get('age')
+        resting_bp = request.form.get('resting_bp')
+        chol = request.form.get('chol')
+        max_heart_rate = request.form.get('max_heart_rate')
+
+        url = 'http://127.0.0.1/predict'
+        body = {
+            "age": age,
+            "resting_bp": resting_bp,
+            "chol": chol,
+            "max_heart_rate": max_heart_rate
+        }
+        response = requests.post(url, data=body)        
+        return '''
+                  <h1>Prediction of heart disease result: {}</h1>'''.format(response.json())
+
+    # otherwise handle the GET request
+    return render_template('calculator.html')
 
 if __name__ == '__main__':
     app.run(debug=True, port='80')
