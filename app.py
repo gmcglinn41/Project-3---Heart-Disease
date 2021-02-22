@@ -41,7 +41,7 @@ def run_example():
 
 @app.route('/parameters/<age>&<resting_bp>&<chol>&<max_heart_rate>')
 def get_prediction(age=5, resting_bp=5, chol=5, max_heart_rate=5):
-    url = 'http://127.0.0.1/predict'
+    url = 'https://heartdiseasegail.herokuapp.com/predict'
     body = {
         "age": age,
         "resting_bp": resting_bp,
@@ -108,7 +108,7 @@ def form_example():
         chol = request.form.get('chol')
         max_heart_rate = request.form.get('max_heart_rate')
 
-        url = 'http://127.0.0.1/predict'
+        url = 'https://heartdiseasegail.herokuapp.com/predict'
         body = {
             "age": age,
             "resting_bp": resting_bp,

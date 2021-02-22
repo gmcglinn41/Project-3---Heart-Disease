@@ -1,7 +1,7 @@
 import requests
 
 def run_request():
-    url = 'http://127.0.0.1/predict'
+    url = 'https://heartdiseasegail.herokuapp.com/predict'
     body = {
         "age": 20,
         "resting_bp": 120,
