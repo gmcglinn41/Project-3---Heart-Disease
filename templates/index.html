@@ -58,6 +58,16 @@ body {
   color: black;
 }
 
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 60px;
+}
+
 /* Create three equal columns that floats next to each other */
 .column {
   float: left;
@@ -91,7 +101,7 @@ body {
   <div class="header">
     <img src="static/images/insideheart.jpg" alt="Heartimage" width="200" height="200">
     <h2>Heart Disease Dashboard</h2>
-    <h5>Picture -@copyright https://unsplash.com/s/photos/heart-attack - Robina Weermeijer</h5>
+    <h6>Picture -@copyright https://unsplash.com/photos/heart-attack - Robina Weermeijer</h6>
   </div>
 
 <div class="topnav">
