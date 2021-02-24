@@ -116,8 +116,8 @@ def form_example():
             "max_heart_rate": max_heart_rate
         }
         response = requests.post(url, data=body)        
-        return '''
-                  <h1>Prediction of heart disease result: {}</h1>'''.format(response.json())
+        return render_template('prediction.html',prediction=response.json().prediction)
+                  
 
     # otherwise handle the GET request
     return render_template('calculator.html')

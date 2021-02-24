@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <title>Landing page</title>
@@ -12,31 +11,25 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
   <!--CSS Link-->
   <link rel="stylesheet" type="text/css" href="style.css">
-
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
- 
 * {
   box-sizing: border-box;
 }
-
 body {
   margin: 0;
 }
-
 /* Style the header */
 .header {
   background-color: #f1f1f1;
   padding: 20px;
   text-align: center;
 }
-
 /* Style the top navigation bar */
 .topnav {
   overflow: hidden;
   background-color: #333;
 }
-
 .desc {
   margin:auto;
   width:100%;
@@ -51,7 +44,6 @@ body {
   padding: 14px 16px;
   text-decoration: none;
 }
-
 /* Change color on hover */
 .topnav a:hover {
   background-color: #ddd;
@@ -61,35 +53,29 @@ body {
   background-color: #4CAF50;
   color: white;
 }
-
 .content {
   padding: 16px;
 }
-
 .sticky {
   position: fixed;
   top: 0;
   width: 100%;
 }
-
 .sticky + .content {
   padding-top: 60px;
 }
-
 /* Create three equal columns that floats next to each other */
 .column {
   float: left;
   width: 33.33%;
   padding: 15px;
 }
-
 /* Clear floats after the columns */
 .row:after {
   content: "";
   display: table;
   clear: both;
 }
-
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
 @media screen and (max-width:600px) {
   .column {
@@ -105,45 +91,34 @@ body {
 </style>
 </head>
 <body>
-  
   <div class="header">
     <img src="static/images/insideheart.jpg" alt="Heartimage" width="200" height="200">
     <h2>Heart Disease Dashboard</h2>
     <h6>Picture -@copyright https://unsplash.com/photos/heart-attack - Robina Weermeijer</h6>
   </div>
-
 <div class="topnav">
   <a href="https://heartdiseasegail.herokuapp.com/heart-calculator">Heart Disease Calculator</a>
- 
- 
 </div>
-<div class="container">
-  <div class="row">
-  
-    <div class="col-md-2">&nbsp;</div>
-      
-          <form method="POST">
-            <div class="col-md-8">    
-            <div class ="form-group"> <label for="age">age:</label> 
-              <input type="text" name="age" class="form-control"></div>
-            <div class ="align_form"><label>resting_bp:</label> <input type="text" name="resting_bp" class="form-control"></div>
-            <div class ="align_form"><label>chol:</label> <input type="text" name="chol" class="form-control"></div>
-            <div class ="align_form"><label>max_heart_rate:</label> <input type="text" name="max_heart_rate" class="form-control" ></div>
-            <button type="submit" class="btn btn-primary mb-2">Calculate</button>
-       
-       </div>
-      </form>
-       <div>&nbsp;</div>
-   </div>         
+<div class="row">
+  <div class="column">
+    <h2>Prediction</h2>
+    {% if prediction == 1 %}
+    <p>Heart Diesease predicted</p>
+    {% else %}
+    <p>Heart Diesease NOT predicted</p>
+    {% endif %}
 </div>
-
+</div>             
+<div class="footer">
+  <h3>Dataset: Age vs Heart Disease (1) /No Heart Disease (0) in Dataset</h3>
+  <img src="static/images/heartDiseaseAndAges.png" alt="HeartDisease2" width="1500" height="600">
+  </div>          
+    </div>       
 </body>
 <script>
   window.onscroll = function() {myFunction()};
-  
   var navbar = document.getElementById("navbar");
   var sticky = navbar.offsetTop;
-  
   function myFunction() {
     // if (window.pageYOffset >= sticky) {
       navbar.classList.add("sticky")
@@ -156,8 +131,8 @@ body {
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
-
 </html>
+
 
 
 
