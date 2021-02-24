@@ -99,19 +99,20 @@ body {
 <div class="topnav">
   <a href="https://heartdiseasegail.herokuapp.com/heart-calculator">Heart Disease Calculator</a>
 </div>
-<div class="row">
-  <div class="column">
-    <h2>Prediction</h2>
-    {% if prediction == 1 %}
-    <p>Heart Diesease predicted</p>
-    {% else %}
-    <p>Heart Diesease NOT predicted</p>
-    {% endif %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <h2>Prediction</h2>
+      {% if prediction == 1 %}
+      <h2>Heart Diesease predicted</h2>
+      {% else %}
+      <h2>Heart Diesease NOT predicted</h2>
+      {% endif %}
+  </div>
+  </div>
 </div>
-</div>             
 <div class="footer">
-  <h3>Dataset: Age vs Heart Disease (1) /No Heart Disease (0) in Dataset</h3>
-  <img src="static/images/heartDiseaseAndAges.png" alt="HeartDisease2" width="1500" height="600">
   </div>          
     </div>       
 </body>
@@ -132,8 +133,3 @@ body {
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>
-
-
-
-
-
