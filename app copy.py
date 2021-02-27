@@ -41,7 +41,43 @@ def get_prediction(age=5, resting_bp=5, chol=5, max_heart_rate=5):
     }
     response = requests.post(url, data=body)
     return response.json()
-
+@app.route('/create/<first_name>&<last_name>')
+def create(first_name=None, last_name=None):
+  return 'Hello ' + first_name + ',' + last_name
+# Query the database and send the jsonified results
+@app.route("/send", methods=["GET", "POST"])
+def send():
+    if request.method == "POST":
+        name = request.form["petName"]
+        lat = request.form["petLat"]
+        lon = request.form["petLon"]
+        pet = Pet(name=name, lat=lat, lon=lon)
+        db.session.add(pet)
+        db.session.commit()
+        return redirect("/", code=302)
+    return render_template("form.html")
+@app.route("/api/pals")
+def pals():
+    results = db.session.query(Pet.name, Pet.lat, Pet.lon).all()
+    hover_text = [result[0] for result in results]
+    lat = [result[1] for result in results]
+    lon = [result[2] for result in results]
+    pet_data = [{
+        "type": "scattergeo",
+        "locationmode": "USA-states",
+        "lat": lat,
+        "lon": lon,
+        "text": hover_text,
+        "hoverinfo": "text",
+        "marker": {
+            "size": 50,
+            "line": {
+                "color": "rgb(8,8,8)",
+                "width": 1
+            },
+        }
+    }]
+    return jsonify(pet_data)
 # allow both GET and POST requests
 @app.route('/heart-calculator', methods=['GET', 'POST'])
 def form_example():
